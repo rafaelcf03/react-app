@@ -15,20 +15,25 @@ import SendIcon from "@mui/icons-material/Send";
 import "../styles/form-style.css";
 
 export default function TaskForm() {
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
   const [index, setIndex] = useState(1);
+  const [task, setTask] = useState({ id: index, name: "", done: false });
+  const [tasks, setTasks] = useState([]);
 
+  // sourcery skip: avoid-function-declarations-in-blocks
   function handleChange(event) {
-    setTask(event.target.value);
+    setTask({ id: index, name: event.target.value, done: false });
   }
 
   function submitForm(event) {
     event.preventDefault();
 
-    setTasks([...tasks, { id: index, name: task }]);
-    setTask("");
-    setIndex(index + 1);
+    if (tasks.find((item) => item.name === task.name)) {
+      alert("Item ja existe");
+    } else {
+      setTasks([...tasks, task]);
+      setTask({ id: index, name: "", done: false }); // clear text field
+      setIndex(index + 1);
+    }
   }
 
   return (
@@ -39,7 +44,7 @@ export default function TaskForm() {
           <TextField
             variant="outlined"
             label="Add new task"
-            value={task}
+            value={task.name}
             onChange={handleChange}
             size="normal"
           />
@@ -54,7 +59,7 @@ export default function TaskForm() {
           </Button>
         </Stack>
       </form>
-      <TasksList tasks={tasks} setTasks={setTasks}/>
+      <TasksList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }
