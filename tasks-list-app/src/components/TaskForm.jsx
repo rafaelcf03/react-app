@@ -1,7 +1,9 @@
 import { useState } from "react";
 import TasksList from "./TasksList";
 import Header from "./Header";
+import Footer from "./Footer";
 import {
+  Alert,
   TextField,
   Button,
   FormControl,
@@ -19,6 +21,9 @@ export default function TaskForm() {
   const [task, setTask] = useState({ id: index, name: "", done: false });
   const [tasks, setTasks] = useState([]);
 
+  const countDone = tasks.filter((task) => task.done).length;
+  const totalTasks = tasks.length;
+
   // sourcery skip: avoid-function-declarations-in-blocks
   function handleChange(event) {
     setTask({ id: index, name: event.target.value, done: false });
@@ -27,8 +32,12 @@ export default function TaskForm() {
   function submitForm(event) {
     event.preventDefault();
 
-    if (tasks.find((item) => item.name === task.name)) {
-      alert("Item ja existe");
+    if (
+      tasks.find((item) => item.name === task.name && item.done === task.done)
+    ) {
+      alert(
+        "Item já existe na lista. Renomeie a tarefa atual ou marque como concluído a existente."
+      );
     } else {
       setTasks([...tasks, task]);
       setTask({ id: index, name: "", done: false }); // clear text field
@@ -59,7 +68,10 @@ export default function TaskForm() {
           </Button>
         </Stack>
       </form>
-      <TasksList tasks={tasks} setTasks={setTasks} />
+
+      {tasks.length > 0 ? <TasksList tasks={tasks} setTasks={setTasks} /> : ""}
+
+      <Footer countDone={countDone} totalTasks={totalTasks} />
     </div>
   );
 }
