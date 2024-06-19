@@ -32,4 +32,5 @@ npm run dev
 ## Task list App
 You can add tasks, mark as done and delete. It's not possible to add more than one task with the same name if the previous one is not closed. 
 ![screenshot](https://i.ibb.co/xL1vLR2/Captura-de-tela-de-2024-06-19-12-08-35.png)
+
 _This is an upgraded version from Code Stoic app, using Material UI. There are a few bugs but it's working as it should work._ 🤗
