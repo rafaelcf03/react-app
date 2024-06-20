@@ -16,8 +16,7 @@ export default function App() {
 
   useEffect(() => {
     async function fetchAPIData() {
-      //const NASA_KEY = import.meta.env.NASA_API_KEY;
-      const NASA_KEY = "8tuXWB0mZqDEAvVmsSmfmxQANgUgSQQSglRv0H6G";
+      const NASA_KEY = import.meta.env.NASA_API_KEY;
       const url =
         "https://api.nasa.gov/planetary/apod" + `?api_key=${NASA_KEY}`;
 
