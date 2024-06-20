@@ -8,7 +8,7 @@
 
 Here you can find 3 apps
 1. A task list (a.k.a. todo list)
-2. A food recipe (_in progress_)
+2. Nasa picture of the day
 3. _To be definied_ 
 
 I'll be updating the documentation as the project progresses.
@@ -30,7 +30,14 @@ And then
 npm run dev
 ```
 ## Task list App
-You can add tasks, mark as done and delete. It's not possible to add more than one task with the same name if the previous one is not closed. 
+Version 1: You can add tasks, mark as done and delete. It's not possible to add more than one task with the same name if the previous one is not closed. 
 ![screenshot](https://i.ibb.co/xL1vLR2/Captura-de-tela-de-2024-06-19-12-08-35.png)
-
 _This is an upgraded version from Code Stoic app, using Material UI. There are a few bugs but it's working as it should work._ 🤗
+
+## Nasa picture of the day
+Version 1: Everyday you can see a different picture. It shows who has taken the picture and a description when the info icon is clicked. The data is fetched from APOD API.
+![screenshot](https://i.ibb.co/VQj2nZd/Captura-de-tela-de-2024-06-20-16-54-51.png)
+![screenshot](https://i.ibb.co/G5L2hXZ/Captura-de-tela-de-2024-06-20-16-54-58.png)
+_This is the app version from Smol James with slightly changes made by moi_
+
+> in progress 🛠️💻
